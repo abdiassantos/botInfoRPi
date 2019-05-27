@@ -43,9 +43,5 @@ def get_time():
     return now
     # return now.month, now.day, now.year, now.minute, now.second
 
-def get_services_info():
-    oCatolicoBotService = subprocess.getoutput('systemctl status botinforpi.service \n')
-    eachService = '--------------------------------- \n'
-    botInfoRpi = subprocess.getoutput('systemctl status ocatolicobot.service \n ')
-
-    return botInfoRpi, eachService, oCatolicoBotService
+def reboot_rasp():
+    os.system('sudo reboot')
