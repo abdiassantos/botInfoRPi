@@ -45,6 +45,7 @@ def get_time():
 
 def get_services_info():
     oCatolicoBotService = subprocess.getoutput('systemctl status botinforpi.service')
+    eachService = '---------------------------------'
     botInfoRpi = subprocess.getoutput('systemctl status ocatolicobot.service')
 
-    return botInfoRpi, oCatolicoBotService
+    return botInfoRpi, eachService, oCatolicoBotService
