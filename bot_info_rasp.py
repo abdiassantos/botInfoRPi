@@ -30,7 +30,7 @@ def send_info(message):
         bot.send_message(message.chat.id, '-----------------------------------------------')
         bot.send_message(message.chat.id, botInfoRpi)  
 
-@bot.message_handler(commands = [reboot])
+@bot.message_handler(commands = ['reboot'])
 def send_reboot_command(message):
         bot.send_message(message.chat.id, 'Raspberry Reiniciado')
         reboot_rasp()
