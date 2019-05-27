@@ -9,7 +9,6 @@ import subprocess
 import psutil
 import os
 from datetime import datetime
-import telebot
 
 def get_ip():
     url = 'http://ipinfo.io/json'
@@ -44,11 +43,8 @@ def get_time():
     return now
     # return now.month, now.day, now.year, now.minute, now.second
 
-    def get_services_info():
-        oCatolicoBotService = subprocess.getoutput('systemctl status botinforpi.service')
-        botInfoRpi = subprocess.getoutput('systemctl status ocatolicobot.service')
+def get_services_info():
+    oCatolicoBotService = subprocess.getoutput('systemctl status botinforpi.service')
+    botInfoRpi = subprocess.getoutput('systemctl status ocatolicobot.service')
 
-        bot.send_message(message.chat.id, '-----------------------------------------------')
-        bot.send_message(message.chat.id, oCatolicoBotService)
-        bot.send_message(message.chat.id, '-----------------------------------------------')
-        bot.send_message(message.chat.id, botInfoRpi)
+    return botInfoRpi, oCatolicoBotService

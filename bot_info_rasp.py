@@ -16,7 +16,7 @@ def send_info(message):
     bot.send_message(message.chat.id, "CPU Temp: {:.1f}'C".format(get_cpu_temp()))
     bot.send_message(message.chat.id, 'GPU Temp: {}'.format(get_gpu_temp()))
 
-    bot.send_message(message.chat.id, get_services_info)
+    bot.send_message(message.chat.id, 'Services: {}'.format(get_services_info()))
 
 while old_ip != get_ip():
         send_info()    
