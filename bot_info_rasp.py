@@ -25,10 +25,13 @@ def send_info(message):
 
         oCatolicoBotService = subprocess.getoutput('systemctl status botinforpi.service')
         botInfoRpi = subprocess.getoutput('systemctl status ocatolicobot.service')
+        apiBrodisDnd = subprocess.getoutput('systemctl status apibrodisdnd.service')
         bot.send_message(message.chat.id, '-----------------------------------------------')
         bot.send_message(message.chat.id, oCatolicoBotService)
         bot.send_message(message.chat.id, '-----------------------------------------------')
-        bot.send_message(message.chat.id, botInfoRpi)  
+        bot.send_message(message.chat.id, botInfoRpi)
+        bot.send_message(message.chat.id, '-----------------------------------------------')
+        bot.send_message(message.chat.id, apiBrodisDnd)
 
 @bot.message_handler(commands = ['reboot'])
 def send_reboot_command(message):
