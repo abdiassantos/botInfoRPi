@@ -1,5 +1,5 @@
 from __future__ import print_function
-from weather import Weather, Unit
+#from weather import Weather, Unit
 import re
 import json
 from urllib.request import urlopen
