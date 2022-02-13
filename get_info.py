@@ -45,3 +45,27 @@ def get_time():
 
 def reboot_rasp():
     os.system('sudo reboot')
+
+# Minecraft Server Commands
+def start_minecraft_server():
+    os.system('cd /mnt/617b0d06-82ea-4e50-a0c3-3a2634b264c7/Minecraft && tmux new -s minecraft -d java -jar server.jar nogui')
+    
+
+def stop_minecraft_server():
+    os.system('tmux kill-session -t minecraft')
+    
+# Terraria Server Commands
+def start_terraria_server():
+    os.system('cd /mnt/617b0d06-82ea-4e50-a0c3-3a2634b264c7/Terraria && tmux new -s terraria -d mono TerrariaServer.exe  -config serverconfig')
+    
+
+def stop_terraria_server():
+    os.system('tmux kill-session -t terraria')
+    
+# Unturned Server Commands
+def start_unturned_server():
+    os.system('cd /mnt/617b0d06-82ea-4e50-a0c3-3a2634b264c7/Unturned/U3DS && tmux new -s unturned -d ./ServerHelper.sh +LanServer/BrodisTHE')
+    
+
+def stop_unturned_server():
+    os.system('tmux kill-session -t unturned')
