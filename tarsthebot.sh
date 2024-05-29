@@ -8,4 +8,6 @@ if tmux has-session -t tarsthebot 2>/dev/null; then
 fi
 
 # Cria uma nova sessão
-tmux new -s tarsthebot -d python3 /home/abdiasviana/Repositories/botInfoRPi/bot_info_rasp.py
+cd /home/abdiasviana/Repositories/botInfoRPi
+source env/bin/activate
+tmux new -s tarsthebot -d python3 bot_info_rasp.py
