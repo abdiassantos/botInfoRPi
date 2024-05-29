@@ -48,7 +48,7 @@ def reboot_rasp():
 
 # Minecraft Server Commands
 def start_minecraft_server():
-    os.system('cd /mnt/617b0d06-82ea-4e50-a0c3-3a2634b264c7/Minecraft && tmux new -s minecraft -d java -jar server.jar nogui')
+    os.system('cd /home/abdiasviana/Repositories/minecraft && source env/bin/activate && tmux new -s minecraft -d java -jar server.jar nogui')
     
 
 def stop_minecraft_server():
