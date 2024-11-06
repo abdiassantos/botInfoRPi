@@ -8,6 +8,7 @@ import urllib
 import subprocess
 import psutil
 import os
+import socket
 from datetime import datetime
 
 def get_ip():
@@ -23,6 +24,12 @@ def get_ip():
     region=data['region']
 
     return IP
+
+def get_internal_ip():
+    hostname = socket.gethostname()
+    internal_ip = socket.gethostbyname(hostname)
+    
+    return internal_ip
 
 def get_cpu_temp():
     tempFile = open('/sys/class/thermal/thermal_zone0/temp')
