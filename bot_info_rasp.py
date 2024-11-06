@@ -1,22 +1,27 @@
 import telebot
 import os
+import socket
 import subprocess
 from get_info import * 
 
 token = '1205570285:AAFBtpCDmmpB3Qnto-DTePLgA9voMmPBGI0'
 bot = telebot.TeleBot(token)
+env_os = "Windows"
 
 @bot.message_handler(commands = ['info', 'start'])
 def send_info(message):
         old_ip = get_ip()
+        internal_ip = get_internal_ip()
         now = get_time()
         bot.send_message(message.chat.id, 'Hi Sir {}'.format(message.chat.username))
         bot.send_message(message.chat.id, 'System Time: {}/{}/{} - {}:{}:{}'.format(now.day, now.month, now.year, now.hour, now.minute, now.second))
         
         if message.chat.id == 48443118:
                 bot.send_message(message.chat.id, 'IP Ext: {}'.format(str(old_ip)))
-                bot.send_message(message.chat.id, "CPU Temp: {:.1f}'C".format(get_cpu_temp()))
-                #bot.send_message(message.chat.id, 'GPU Temp: {}'.format(get_gpu_temp()))
+                bot.send_message(message.chat.id, 'IP Int: {}'.format(str(internal_ip)))
+                if env_os == "Linux":
+                        bot.send_message(message.chat.id, "CPU Temp: {:.1f}'C".format(get_cpu_temp()))
+                        #bot.send_message(message.chat.id, 'GPU Temp: {}'.format(get_gpu_temp()))
 
 @bot.message_handler(commands = ['reboot'])
 def send_reboot_command(message):
